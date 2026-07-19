@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit 
+    bootstrap="tests-bootstrap.php" 
+    colors="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
+>
+    <testsuites>
+        <testsuite name="Logger Test Suite">
+            <directory suffix="_tests.php">.</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <testdoxText outputFile="php://stdout"/>
+    </logging>
+    <php>
+        <env name="PATCHWORK_BLACKLIST" value="Source/:vendor/"/>
+    </php>
+</phpunit>
