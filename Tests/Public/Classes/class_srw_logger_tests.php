@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\TestDox;
 use ReflectionClass;
-use SRW_Logger;
+use SRW\Logger\Public\Classes\SRW_Logger;
 
 #[
     TestDox(

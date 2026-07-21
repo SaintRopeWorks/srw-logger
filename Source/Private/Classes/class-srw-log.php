@@ -1,5 +1,16 @@
 <?php
 
+declare(
+    strict_types =
+        1
+);
+
+namespace SRW\Logger\Private\Classes;
+
+use SRW\Logger\Public\Classes\SRW_Logger;
+use SRW\Logger\Private\Enumerations\SRW_Log_Level;
+use SRW\Logger\Private\Enumerations\SRW_Log_Type;
+
 class SRW_Log {
     private string $name;
     private string $path;

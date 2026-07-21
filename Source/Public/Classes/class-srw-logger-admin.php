@@ -1,5 +1,12 @@
 <?php
 
+declare(
+    strict_types =
+        1
+);
+
+namespace SRW\Logger\Public\Classes;
+
 class SRW_Logger_Admin {
 
     public static function init() {

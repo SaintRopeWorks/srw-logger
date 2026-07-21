@@ -1,5 +1,20 @@
 <?php
 
+declare(
+    strict_types =
+        1
+);
+
+namespace SRW\Logger\Public\Classes;
+
+use SRW\Logger\Private\Classes\SRW_Log;
+use SRW\Logger\Private\Enumerations\SRW_Log_Level;
+use SRW\Logger\Private\Enumerations\SRW_Log_Type;
+use SRW\Logger\Public\Attributes\LogFamily;
+use ReflectionMethod;
+use ReflectionFunction;
+use ReflectionException;
+
 class SRW_Logger {
     public static string $path = 
         '';

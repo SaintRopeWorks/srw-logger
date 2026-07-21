@@ -3,7 +3,7 @@
     "description": "Zero-configuration stack-aware logging engine supporting dynamic log families via PHP 8 attributes.",
     "type": "wordpress-muplugin",
     "license": "GPL-2.0-or-later",
-    "version": "2026.7.19.1",
+    "version": "2026.7.21.1",
     "minimum-stability": "stable",
     "require": {
         "php": ">=8.1"
@@ -11,6 +11,9 @@
     "autoload": {
         "psr-4": {
             "SRW\\Logger\\": "Source/"
-        }
+        },
+        "files": [
+            "Source/bootloader.php"
+        ]
     }
 }
