@@ -3,18 +3,28 @@
   "description": "Unit testing framework for SRW Logger Plugin",
   "version": "1.0.0",
   "require-dev": {
-    "phpunit/phpunit": "^10.0"
+    "phpunit/phpunit": "^10.5",
+    "pestphp/pest": "^2.36"
   },
   "autoload": {
     "classmap": [
       "../Source/Public/Classes/",
       "../Source/Private/Classes/",
-      "../Source/Private/Enumerations/"
+      "../Source/Private/Enumerations/",
+      "../Source/Public/Attributes/"
     ]
   },
   "autoload-dev": {
+    "psr-4": {
+            "Tests\\": "./"
+        },
     "classmap": [
       "./"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   }
 }

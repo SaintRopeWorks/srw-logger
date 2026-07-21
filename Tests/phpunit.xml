@@ -5,13 +5,13 @@
     displayDetailsOnTestsThatTriggerWarnings="true"
 >
     <testsuites>
-        <testsuite name="Logger Test Suite">
-            <directory suffix="_tests.php">.</directory>
+        <testsuite name="[Unit]">
+            <directory suffix="_tests.php">Unit</directory>
+        </testsuite>
+        <testsuite name="[Integration]">
+            <directory suffix="_tests.php">Integration</directory>
         </testsuite>
     </testsuites>
-    <logging>
-        <testdoxText outputFile="php://stdout"/>
-    </logging>
     <php>
         <env name="PATCHWORK_BLACKLIST" value="Source/:vendor/"/>
     </php>

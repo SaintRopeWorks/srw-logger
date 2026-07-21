@@ -4,7 +4,7 @@ declare(
         1
 );
 
-namespace Tests\Public\Attributes;
+namespace Tests\Integration\Private\Enumerations;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
@@ -12,10 +12,10 @@ use PHPUnit\Framework\Attributes\TestDox;
 
 #[
     TestDox(
-        'SRW_Log_Family Attribute'
+        "SRW Log Level Enumeration (Integration)"
     )
 ]
-class attribute_log_family_tests extends TestCase {
+class enumeration_srw_log_level_tests extends TestCase {
     #[
         Test
     ]
@@ -24,12 +24,12 @@ class attribute_log_family_tests extends TestCase {
             "For Future Use"
         )
     ]
-    public function it_exists_for_future_attribute_tests(
+    public function it_exists_for_future_enum_tests(        
     ): void {
         $this->
             assertTrue(
                 true, 
-                'I exist in case I am needed in the future for LogFamily.'
+                'I exist in case I am needed in the future for SRW_Log_Level.'
             );
     }
 }

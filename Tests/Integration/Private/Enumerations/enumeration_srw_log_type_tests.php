@@ -4,7 +4,7 @@ declare(
         1
 );
 
-namespace Tests\Public\Classes;
+namespace Tests\Integration\Private\Enumerations;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
@@ -12,10 +12,10 @@ use PHPUnit\Framework\Attributes\TestDox;
 
 #[
     TestDox(
-        'SRW_Logger_Admin Class'
+        'SRW Log Type Enumeration (Integration)'
     )
 ]
-class class_srw_logger_admin_tests extends TestCase {
+class enumeration_srw_log_type_tests extends TestCase {
     #[
         Test
     ]
@@ -24,12 +24,12 @@ class class_srw_logger_admin_tests extends TestCase {
             "For Future Use"
         )
     ]
-    public function it_exists_for_future_admin_panel_tests(        
+    public function it_exists_for_future_enum_tests(        
     ): void {
         $this->
             assertTrue(
                 true, 
-                'I exist in case I am needed in the future for SRW_Logger_Admin.'
+                'I exist in case I am needed in the future for SRW_Log_Type.'
             );
     }
 }

@@ -4,7 +4,7 @@ declare(
         1
 );
 
-namespace Tests\Public\Classes;
+namespace Tests\Integration\Public\Classes;
 
 use Tests\SRWTestCaseBase;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +15,7 @@ use SRW\Logger\Public\Classes\SRW_Logger;
 
 #[
     TestDox(
-        'SRW_Logger Class'
+        'SRW_Logger Class (Integration)'
     )
 ]
 class class_srw_logger_tests extends SRWTestCaseBase {

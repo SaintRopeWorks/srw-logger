@@ -4,7 +4,7 @@ declare(
         1
 );
 
-namespace Tests\Private\Enumerations;
+namespace Tests\Unit\Private\Enumerations;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
@@ -12,10 +12,10 @@ use PHPUnit\Framework\Attributes\TestDox;
 
 #[
     TestDox(
-        'SRW Log Type Enumeration'
+        "SRW Log Level Enumeration (Pure Unit Isolation)"
     )
 ]
-class enumeration_srw_log_type_tests extends TestCase {
+class enumeration_srw_log_level_tests extends TestCase {
     #[
         Test
     ]
@@ -29,7 +29,7 @@ class enumeration_srw_log_type_tests extends TestCase {
         $this->
             assertTrue(
                 true, 
-                'I exist in case I am needed in the future for SRW_Log_Type.'
+                'I exist in case I am needed in the future for SRW_Log_Level.'
             );
     }
 }
