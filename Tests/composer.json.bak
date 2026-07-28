@@ -2,6 +2,10 @@
   "name": "srw/logger-testing-suite",
   "description": "Unit testing framework for SRW Logger Plugin",
   "version": "1.0.0",
+  "require-dev": {
+    "phpunit/phpunit": "^12.0",
+    "pestphp/pest": "^4.0"
+  },
   "autoload": {
     "classmap": [
       "../Source/Public/Classes/",
