@@ -7,9 +7,7 @@ declare(
 
 namespace SRW\Logger\Private\Enumerations;
 
-enum SRW_Log_Type: string {
-    case Message 
-        = 'MSG';
-    case Data    
-        = 'DATA';
+enum SRW_Log_Type {
+    case Message;
+    case Data;
 }

@@ -1,14 +1,13 @@
 <?php
 
-declare(
-    strict_types =
-        1
-);
+declare(strict_types = 1);
 
 namespace SRW\Logger\Public\Classes;
 
+use Illuminate\Support\Collection;
 use SRW\Logger\Private\Classes\SRW_Log;
 use SRW\Logger\Private\Enumerations\SRW_Log_Level;
+use SRW\Logger\Public\Classes\SRW_CallStackFrame;
 use SRW\Logger\Private\Enumerations\SRW_Log_Type;
 use SRW\Logger\Public\Attributes\LogFamily;
 use ReflectionMethod;
@@ -16,759 +15,302 @@ use ReflectionFunction;
 use ReflectionException;
 
 class SRW_Logger {
-    public static string $path = 
-        '';
-    public static bool $append = 
-        true;
-    public static int $roll_over_size = 
-        2097152; // 2MB Default
-    public static int $max_message_size = 
-        5000;
+    public static string $Path = '';
+    public static bool $Append = true;
+    public static int $RollOverSize = 2097152; // 2MB Default
+    public static int $MaxMessageSize = 5000;
 
-    private static ?array $_call_stack = 
-        null;
-    private static array $_logger_registry = 
-        [];
-    private static string $format_string = 
-        '';
+    /**
+     * @var Collection<int, SRW_CallStackFrame>|null
+     */
+    private static ?Collection $_CallStack = null;
+    private static array $_Logger = [];
+    private static string $LogSchema = '';
 
-    public static function setup(
-        ?string $custom_dir = 
-            null, 
-        bool $append = 
-            true, 
-        int $roll_size = 
-            2097152, 
-        int $max_msg_size = 
-            5000
+    public static function Logger(): void {
+        self::ClearCalls();
+        self::Setup();
+    }
+
+    public static function Setup(
+        ?string $Path = null, 
+        bool $Append = true, 
+        int $RollOverSize = 2097152, 
+        int $MaxMessageSize = 5000
     ) {
-        self
-            ::$append = 
-                $append;
-        self
-            ::$roll_over_size = 
-                $roll_size;
-        self
-            ::$max_message_size = 
-                $max_msg_size;
-        if ( 
-            !empty( 
-                $custom_dir 
-            ) 
-        ) {
-            self::
-                $path = 
-                    $custom_dir;
+        self::$Append = $Append;
+        self::$RollOverSize = $RollOverSize;
+        self::$MaxMessageSize = $MaxMessageSize;
+        if ( !empty( $Path ) ) {
+            self::$Path = $Path;
         } else {
-            $wp_upload = 
-                function_exists( 
-                    'wp_upload_dir' 
-                ) 
-                    ? wp_upload_dir(                        
-                    ) 
-                    : null;
-            if ( 
-                $wp_upload && 
-                    isset( 
-                        $wp_upload[
-                            'basedir'
-                        ] 
-                    ) 
-            ) {
-                self::
-                    $path = 
-                        $wp_upload[
-                            'basedir'
-                        ] 
-                            . '/srw-enterprise-logs';
-            } else {
-                self::
-                    $path = 
-                        sys_get_temp_dir(                            
-                        ) 
-                            . '/srw-enterprise-logs';
-            }
+            $wp_upload = (function_exists('wp_upload_dir') && !isset($GLOBALS['srw_mock_cli_mode'])) ? wp_upload_dir() : null;
+            self::$Path = ( $wp_upload && isset($wp_upload['basedir'])) ? $wp_upload['basedir'] : sys_get_temp_dir() . '/srw-enterprise-logs';
         }
-        self
-            ::$format_string = 
-                function_exists(
-                    'get_option'
-                ) 
-                    ? get_option(
-                        'srw_log_format_string', 
-                        '[{DATE:Y-m-d} {TIME:H:i:s.v}] [{LEVEL}] [{CONTEXT}] | {MESSAGE}') 
-                    : '[{DATE:Y-m-d} {TIME:H:i:s.v}] [{LEVEL}] [{CONTEXT}] | {MESSAGE}';
-        self
-            ::create_path(
-                self
-                    ::$path
-            );
-        self
-            ::purge_old_logs(
-            );
+        self::$LogSchema = (function_exists('get_option') && !isset($GLOBALS['srw_mock_cli_mode']))
+            ? get_option('srw_log_format_string', '[{DATE:Y-m-d} {TIME:H:i:s.v}] [{LEVEL}] [{CONTEXT}] | {MESSAGE}') 
+            : '[{DATE:Y-m-d} {TIME:H:i:s.v}] [{LEVEL}] [{CONTEXT}] | {MESSAGE}';
+        self::CreatePath(self::$Path);
+        self::PurgeOldLogs();
     }
 
-    public static function get_max_message_size(        
-    ): int { 
-        return self::
-            $max_message_size; 
+    public static function GetLogSchema(): string { return (empty(self::$LogSchema)) ? '[{DATE:Y-m-d} {TIME:H:i:s.v}] [{LEVEL}] [{CONTEXT}] | {MESSAGE}' : self::$LogSchema; }    
+    public static function SetLogSchema(string $format): void { self::$LogSchema = $format; }
+
+    public static function Information( string $Message, $Data = null ): string {
+         return self::Get()->
+            Write($Message, $Data, SRW_Log_Level::Information);
     }
-    public static function get_roll_over_size(
-    ): int { 
-        return self::
-            $roll_over_size; 
+    public static function Warning( string $Message, $Data = null ): string { 
+        return self::Get()->
+            Write($Message, $Data, SRW_Log_Level::Warning); 
     }
-    public static function get_format_string(
-    ): string {
-        return (
-            empty(
-                self
-                    ::$format_string
-            )
-        )
-            ? '[{DATE:Y-m-d} {TIME:H:i:s.v}] [{LEVEL}] [{CONTEXT}] | {MESSAGE}'
-            : self
-                ::$format_string;
+    public static function Error(string $Message, $Data = null ): string { 
+        return self::Get()->
+            Write($Message, $Data, SRW_Log_Level::Error); 
     }    
-
-    public static function info(
-        string $message, 
-        $data = 
-            null
-    ) { 
-        self
-            ::get(
-            )
-                ->write(
-                    $message, 
-                    $data, 
-                    SRW_Log_Level
-                        ::Info
-                ); 
-    }
-    public static function warn(
-        string $message, 
-        $data = 
-            null
-    ) { 
-        self
-            ::get(
-            )
-                ->write(
-                    $message, 
-                    $data, 
-                    SRW_Log_Level
-                        ::Warn
-                ); 
-    }
-    public static function error(
-        string $message, 
-        $data = 
-            null
-    ) { 
-        self
-            ::get(
-            )
-                ->write(
-                    $message, 
-                    $data, 
-                    SRW_Log_Level
-                        ::Error
-                ); 
-    }    
-    public static function verbose(
-        string $message, 
-        $data = 
-            null
-    ) { 
-        self
-            ::get(
-            )
-                ->write(
-                    $message, 
-                    $data, 
-                    SRW_Log_Level
-                        ::Verbose
-                ); 
+    public static function Verbose(string $Message, $Data = null): string { 
+        return self::Get()->
+            Write($Message, $Data, SRW_Log_Level::Verbose); 
     }
 
-    private static function get(
-        bool $force = 
-            false
-    ): SRW_Log {
-        return self
-            ::get_log(
-                self
-                    ::get_call_name(
-                    ), 
-                self::$path, 
-                self::$append, 
-                $force, 
-                false
-            );
+    private static function Get( bool $force = false ): SRW_Log { 
+        return self::GetLog(self::GetCallName(),self::$Path,self::$Append,$force,false); 
     }
 
-    public static function clear_calls(
-    ) {
-        self
-            ::$_call_stack = 
-                null;
+    private static function GetLog( string $Name,string $Path, bool $Append, bool $Force, bool $IsFamily): SRW_Log {
+        if (!isset(self::$_Logger[$Name]) || $Force)
+            self::$_Logger[$Name] = 
+                new SRW_Log($Name, $Path, $IsFamily, $Append);
+        self::CreatePath($Path);
+        return self::$_Logger[$Name];
     }
 
-    private static function get_calls(
-    ): array {
-        self
-            ::$_call_stack = 
-                self
-                    ::$_call_stack ??
-                        [
-                            isset(
-                                $GLOBALS[
-                                    'srw_mock_caller_context'
-                                ]
-                            )
-                                ? $GLOBALS[
-                                    'srw_mock_caller_context'
-                                ]
-                                : self
-                                    ::get_caller_context(
-                                    )
-                        ];
-        return self
-            ::$_call_stack;
+    public static function ClearCalls() { 
+        self::$_CallStack = null; 
     }
     
-    public static function get_current_call(
-    ): ?array {
-        $calls = 
-            self
-                ::get_calls(
-                );
-        return !empty(
-            $calls
-        ) && 
-            isset(
-                $calls[
-                    0
-                ]
-            )
-            ? $calls[
-                0
-            ] 
-            : null;
+    private static function GetCalls(): Collection {
+        if (self::$_CallStack !== null) 
+            return self::$_CallStack;
+        if (isset($GLOBALS['srw_mock_caller_context'])) {
+            self::$_CallStack = 
+                collect([$GLOBALS['srw_mock_caller_context']]);
+            return self::$_CallStack;
+        }
+        $rawTrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        $totalFrames = count($rawTrace);
+        $sliceIndex = 0;
+        for ($i = 0; $i < $totalFrames; $i++) {
+            $file = $rawTrace[$i]['file'] ?? '';
+            if (str($file)->contains('/Logger/Source')) {
+                $sliceIndex = $i + 1;
+                continue;
+            }
+            break;
+        }
+        $slicedTrace = array_values(
+            array_slice($rawTrace, $sliceIndex)
+        );        
+        self::$_CallStack = collect($slicedTrace)->
+            map(
+                function (
+                    array $currentFrame, int $index
+                ) use ($slicedTrace): SRW_CallStackFrame {
+                    return new SRW_CallStackFrame(
+                        $currentFrame, 
+                        $slicedTrace[$index + 1] ?? null
+                    );
+                }
+            )->skipWhile(
+                fn(SRW_CallStackFrame $Frame) => 
+                    str_contains($Frame->Function, '{closure')
+            );
+        return self::$_CallStack;
+    }
+   
+    public static function GetCall(): ?SRW_CallStackFrame {
+        return self::GetCalls()->first();
     }
 
-    private static function get_call_name(
-    ): string {
-        $call = 
-            self
-                ::get_current_call(
-                );
-        return $call 
-            ? $call[
-                'target_name'
-            ] 
-            : 'global_scope';
+    private static function GetCallName(): string {
+        $Frame = self::GetCall();
+        $Basename = $Frame ? $Frame->Basename : 'global';
+        if ($Basename === 'global' || $Basename === '')
+            return 'global scope';
+        return pathinfo($Basename, PATHINFO_FILENAME);
     }
 
-    public static function family(        
-    ): array {
-        $call = 
-            self
-                ::get_current_call(
-                );
-        if (
-            !$call 
-                || empty(
-                    $call[
-                        'families'
-                    ]
-                )
-        )
-            return [
-            ];
-        $defined_family_logs = 
-            [
-            ];
-        foreach (
-            $call[
-                'families'
-            ] as 
-                $family_meta
-        ) {
-            $target_path =
-                (
-                    !empty(
-                            $family_meta[
-                                'path'
-                            ]
-                    ) 
-                        && !str_starts_with(
-                            $family_meta[
-                                'path'
-                            ], 
-                            '/'
-                        ) 
-                            && !str_contains(
-                                $family_meta[
-                                    'path'
-                                ], 
-                                ':'
-                            )
-                ) 
-                    ? self
-                        ::$path 
-                            . '/' 
-                            . trim(
-                                $family_meta[
-                                    'path'
-                                ], 
-                                '/'
-                            )
-                    : $family_meta[
-                        'path'
-                    ] ?? 
-                        self
-                            ::$path;
-            $defined_family_logs[
-            ] = 
-                self
-                    ::get_log(
-                        $family_meta[
-                            'name'
-                        ], 
-                        $target_path, 
-                        true, 
+    public static function Family(): Collection {
+        return self::GetFamilies()
+            ->push(new LogFamily('DefaultLogFamily'))
+            ->unique(fn(LogFamily $Family) => self::GetFamilyName($Family))
+            ->map(
+                function(LogFamily $Family): SRW_Log {
+                    return self::GetLog(
+                        self::GetFamilyName($Family),
+                        self::GetFamilyPath($Family),
+                        true,  
                         false, 
-                        true
+                        true   
                     );
-        }
-        return $defined_family_logs;
-    }    
-
-    public static function get_log(
-        string $name, 
-        string $path, 
-        bool $append, 
-        bool $force, 
-        bool $is_family
-    ): SRW_Log {
-        $registry_key = 
-            $path 
-                . '/' 
-                . $name;
-        if (
-            !isset(
-                self
-                    ::$_logger_registry[
-                        $registry_key
-                    ]
-            ) 
-                || $force
-        ) {
-            self
-                ::$_logger_registry[
-                    $registry_key
-                ] = 
-                    new SRW_Log(
-                        $name, 
-                        $path, 
-                        $is_family, 
-                        $append
-                    );
-        }
-        self
-            ::create_path(
-                $path
-            );
-        return self
-            ::$_logger_registry[
-                $registry_key
-            ];
-    }    
-
-    public static function create_path(
-        string $path
-    ) {
-        if (
-            !file_exists(
-                $path
+                }
             )
-        ) {
-            mkdir(
-                $path, 
-                0755, 
-                true
-            );
-            if (
-                str_contains(
-                    $path, 
-                    'wp-content/uploads'
+            ->filter(
+                fn(SRW_Log $Log) => 
+                    $Log->IsFamily
+            )
+            ->values();
+    }    
+
+    private static function GetFamilyPath(LogFamily $Family): string {        
+        $path = $Family->path ?? '';
+        if (!empty($path) && is_callable($path)) 
+            $path = (string)call_user_func($path);
+        if (empty($path)) 
+            return self::$Path;
+        $isRooted = str_starts_with($path, '/') || (str_contains($path, ':') && preg_match('/^[A-Z]:/i', $path));
+        return $isRooted ? $path : str(self::$Path)->finish('/')->append($path)->toString();   
+    }
+
+    private static function GetFamilyName(LogFamily $Family): string {
+        $resolved = $Family->family;
+        if ($Family->resolver === 'callable' && is_callable($resolved)) {
+            $resolved = (string)call_user_func($resolved);
+        } else {
+            $resolved = match($Family->resolver) {
+                'global'   => (string)($GLOBALS[$resolved] ?? $resolved),
+                'option'   => function_exists('get_option') ? (string)get_option($resolved, $resolved) : $resolved,
+                'constant' => defined($resolved) ? (string)constant($resolved) : $resolved,
+                default    => $resolved
+            };
+        }
+        return self::Sanitize($resolved);
+    }
+
+    private static function GetFamilies(): Collection {
+        static $attributeCache = [];
+        return self::GetCalls()
+            ->filter(
+                fn(SRW_CallStackFrame $frame) => 
+                    !in_array(
+                        $frame->Function, 
+                        [
+                            'include', 
+                            'include_once', 
+                            'require', 
+                            'require_once', 
+                            'array_map', 
+                            'array_filter', 
+                            'call_user_func', 
+                            'call_user_func_array'
+                        ], 
+                        true
+                    )
                 )
-            ) {
-                @file_put_contents(
-                    $path 
-                        . '/.htaccess', 
-                    "Order Deny,Allow" 
-                        . PHP_EOL 
-                        . "Deny from all"
-                );
-                @file_put_contents(
-                    $path 
-                        . '/index.html', 
-                    ''
-                );
+            ->flatMap(
+                function (
+                    SRW_CallStackFrame $frame
+                ) use (&$attributeCache): array {
+                    if ($frame->Function === 'global_scope')
+                        return [];
+                    $cacheKey = $frame->Class 
+                        ? "{$frame->Class}::{$frame->Function}" 
+                        : $frame->Function;
+                    if (isset($attributeCache[$cacheKey])) 
+                        return $attributeCache[$cacheKey];
+                    try {
+                        $reflector = $frame->Class 
+                            ? new ReflectionMethod(
+                                $frame->Class, $frame->Function
+                            ) 
+                            : new ReflectionFunction(
+                                $frame->Function
+                            );
+                        $attributes = collect($reflector->getAttributes())
+                            ->map(
+                                function (\ReflectionAttribute $attr) use ($cacheKey) {
+                                    try {
+                                        return $attr->newInstance();
+                                    } catch (\Throwable $e) {
+                                        if ($attr->getName() === 'LogFamily' || str_ends_with($attr->getName(), '\\LogFamily')) {
+                                            error_log(sprintf(
+                                                'SRW_Logger: found what looks like #[LogFamily] on "%s" (resolved as "%s") but could not instantiate it: %s. Is the SRWLogger plugin loading before this file, so its class_alias() bootstrap has run?',
+                                                $cacheKey,
+                                                $attr->getName(),
+                                                $e->getMessage()
+                                            ));
+                                        }
+                                        return null;
+                                    }
+                                }
+                            )
+                            ->filter(fn($instance) => $instance instanceof LogFamily)
+                            ->values()
+                            ->all();
+                        $attributeCache[$cacheKey] = $attributes;
+                        return $attributes;
+                    } catch (ReflectionException) {
+                        $attributeCache[$cacheKey] = [];
+                        return [];
+                    } catch (\Throwable $e) {
+                        $attributeCache[$cacheKey] = [];
+                        error_log(sprintf(
+                            'SRW_Logger::GetFamilies() failed to reflect on "%s": %s',
+                            $cacheKey,
+                            $e->getMessage()
+                        ));
+                        return [];
+                    }
+                }
+            )
+            ->unique(
+                fn(LogFamily $Family) => 
+                    self::GetFamilyName($Family)
+            )
+            ->values();
+    }
+
+    public static function CreatePath(string $path) {
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+            if (str_contains($path, 'wp-content/uploads')) {
+                @file_put_contents($path . '/.htaccess', "Order Deny,Allow" . PHP_EOL . "Deny from all");
+                @file_put_contents($path . '/index.html', '');
             }
         }
     }   
 
-    private static function purge_old_logs(
-    ) {
-        $days_to_keep = 
-            function_exists(
-                'get_option'
-            ) 
-                ? (int)get_option(
-                    'srw_log_retention_days', 
-                    14
-                ) 
-                : 14;
-        if (
-            $days_to_keep <= 
-                0
-        ) { 
-            $days_to_keep = 
-                14; 
+    private static function PurgeOldLogs(): void {
+        $daysToKeep = (function_exists('get_option') && !isset($GLOBALS['srw_mock_cli_mode'])) 
+            ? (int)get_option('srw_log_retention_days', 14) 
+            : 14;
+            
+        if ($daysToKeep <= 0) {
+            $daysToKeep = 14; 
         }
-        $max_age_seconds = 
-            $days_to_keep * 
-                86400;
-        $current_time = 
-            time(
-            );
-        $log_files = 
-            glob(
-                self
-                    ::$path 
-                        . '/*-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-*.log'
-            );
-        if (
-            !empty(
-                $log_files
-            )
-        ) {
-            foreach (
-                $log_files as 
-                    $file
-            ) {
-                if (
-                    is_file(
-                        $file
-                    ) 
-                        && (
-                            $current_time - 
-                                filemtime(
-                                    $file
-                                )
-                        ) > 
-                            $max_age_seconds
-                ) {
-                    @unlink(
-                        $file
-                    );
-                }
-            }
-        }
-    }
-
-    private static function get_caller_context(
-    ): array {
-        $trace = 
-            debug_backtrace(
-                DEBUG_BACKTRACE_IGNORE_ARGS
-            );
-        static $attribute_cache = 
-            [
-            ];        
-        $resolved_function = 
-            'global_scope';
-        $target_name = 
-            'global_scope';
-        $basename = 
-            isset(
-                $_SERVER[
-                    'SCRIPT_FILENAME'
-                ]
-            ) 
-                ? basename(
-                    $_SERVER[
-                        'SCRIPT_FILENAME'
-                    ]
-                ) 
-                : 'index.php';
-        $line = 
-            0;
         
-        foreach (
-            $trace as 
-                $index => 
-                    $frame
-        ) {
-            if (
-                isset(
-                    $frame[
-                        'class'
-                    ]
-                ) 
-                    && $frame[
-                        'class'
-                    ] === 
-                        self
-                            ::class
-            )
-                continue; 
-            if (
-                $line === 
-                    0
-            ) {
-                $file = 
-                    $frame[
-                        'file'
-                    ] ?? 
-                        'global';
-                $basename = 
-                    basename(
-                        $file
-                    );
-                $line = 
-                    $frame[
-                        'line'
-                    ] ?? 
-                        0;
-            }
-
-            $current_fn = 
-                $frame[
-                    'function'
-                ] ?? 
-                    '';
-            if (
-                empty(
-                    $current_fn
-                ) || 
-                    str_contains(
-                        $current_fn, 
-                        '{closure}'
-                    ) || 
-                        in_array(
-                            $current_fn, 
-                            [
-                                'include', 
-                                'include_once', 
-                                'require', 
-                                'require_once', 
-                                'array_map', 
-                                'array_filter', 
-                                'call_user_func', 
-                                'call_user_func_array'
-                            ]
-                        )
-            )
-                continue;
-            if (
-                isset(
-                    $frame[
-                        'class'
-                    ]
-                )
-            ) {
-                $short_class = 
-                    basename(
-                        str_replace(
-                            '\\', 
-                            '/', 
-                            $frame[
-                                'class'
-                            ]
-                        )
-                    );
-                $resolved_function = 
-                    "{$short_class}::{$current_fn}()";
-                $target_name = 
-                    "{$short_class}__{$current_fn}";
-            } else {
-                $resolved_function = 
-                    "{$current_fn}()";
-                $target_name = 
-                    $current_fn;
-            }
-            break;
-        }
-
-        $discovered_families = 
-            [
-            ];
-        if (
-            $target_name !== 
-                'global_scope' && 
-                    !empty(
-                        $target_name
-                    )
-        ) {
-            if (
-                isset(
-                    $attribute_cache[
-                        $target_name
-                    ]
-                )
-            ) {
-                $discovered_families = 
-                    $attribute_cache[
-                        $target_name
-                    ];
-            } else {
-                try {
-                    if (
-                        isset(
-                            $frame[
-                                'class'
-                            ]
-                        )
-                    ) {
-                        $reflector = 
-                            new ReflectionMethod(
-                                $frame[
-                                    'class'
-                                ], 
-                                $current_fn
-                            );
-                    } else {
-                        $reflector = 
-                            new ReflectionFunction(
-                                $current_fn
-                            );
-                    }
-                    $discovered_families = 
-                        self::
-                            extract_families_from_reflector(
-                                $reflector
-                            );
-                    $attribute_cache[
-                        $target_name
-                    ] = 
-                        $discovered_families;
-                } catch (
-                    ReflectionException $e
-                ) {
-                }
-            }
-        }
-
-        return [
-            'target_name' => 
-                self::
-                    sanitize(
-                        $target_name
-                    ),
-            'basename' => 
-                $basename,
-            'line' => 
-                $line,
-            'resolved_function' => 
-                $resolved_function,
-            'families' => 
-                $discovered_families
-        ];
+        $maxAgeSeconds = $daysToKeep * 86400;
+        $currentTime = time();
+        
+        collect((array)glob(self::$Path . '/*.log'))
+            ->filter(fn(string $File) => is_file($File) && ($currentTime - filemtime($File)) > $maxAgeSeconds)
+            ->each(fn(string $File) => @unlink($File));
     }
 
-    private static function extract_families_from_reflector(
-        $reflector
-    ): array {
-        $families = 
-            [
-            ];
-        $attributes = 
-            $reflector->
-                getAttributes(
-                    LogFamily::
-                        class
-                );
-        foreach (
-            $attributes as 
-                $attribute
-        ) {
-            $instance = 
-                $attribute->
-                    newInstance(
-                    );
-            $resolved_name = 
-                $instance->
-                    family;
-
-            $resolved_name = 
-                match(
-                    $instance->resolver
-                ) {
-                    'global' => 
-                        (string)(
-                            $GLOBALS[
-                                $resolved_name
-                            ] ??
-                                $resolved_name
-                        ),
-                    'option' =>
-                        (string)get_option(
-                            $resolved_name, 
-                            $resolved_name
-                        ),
-                    'constant' =>
-                        defined(
-                            $resolved_name
-                        ) 
-                            ?  (string)constant(
-                                $resolved_name
-                            )
-                            : $resolved_name,
-                    default => 
-                        $resolved_name
-            };
-            if (
-                !empty(
-                    $resolved_name
-                )
-            )  
-                $families[
-                ] = 
-                    [
-                        'name' => 
-                            self::
-                                sanitize(
-                                    $resolved_name
-                                ), 
-                        'path' => 
-                            $instance->
-                                path
-                    ];             
-        }
-        return $families;
+    private static function Sanitize(string $name): string { 
+        return sanitize_file_name(str_replace(['::','\\','/','{','}', '__'],'_',$name)); 
     }
+}
 
-    private static function sanitize(
-        string $name
-    ): string {
-        return sanitize_file_name(
-            str_replace(
-                [
-                    '::', 
-                    '\\', 
-                    '/', 
-                    '{', 
-                    '}', 
-                    '__'
-                ], 
-                '_', 
-                $name
-            )
-        );
-    }
+if (!defined('ABSPATH') && php_sapi_name() !== 'cli' && !isset($GLOBALS['srw_mock_cli_mode'])) {
+    exit;
+}
+
+if (isset($GLOBALS['srw_mock_cli_mode'])) {
+    SRW_Logger::Logger();
+} elseif (php_sapi_name() === 'cli') {
+    SRW_Logger::Logger();
+} else {
+    add_action('plugins_loaded', [SRW\Logger\Public\Classes\SRW_Logger::class, 'Logger'], 1);
 }

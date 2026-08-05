@@ -1,34 +1,14 @@
 <?php
-declare(
-    strict_types =
-        1
-);
+declare(strict_types=1);
 
-describe(
-    'Does it Work',
-    function(
-    ) {
+namespace Tests\Unit\Private\Enumerations;
+
+use SRW\Logger\Private\Enumerations\SRW_Log_Type;
+
 unit_group(
-    function(
-    ) {
-        describe(
-            'SRW_Log_Type',
-            function(
-            ) {
-                it(
-                    'is for Future Use',
-                    function(                
-                    ) {
-                        expect(
-                            true
-                        )->
-                            toBeTrue(
-                            );
-                    }
-                );
-            }
-        );
+    function () {
+        it('Confirms accurate classification mapping values are matched', function () {
+            expect(SRW_Log_Type::Data->value)->toBe('DATA');
+        });
     }
 );
-
-    });

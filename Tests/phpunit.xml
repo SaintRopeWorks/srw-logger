@@ -12,6 +12,15 @@
             <directory suffix="_Tests.php">Integration</directory>
         </testsuite>
     </testsuites>
+    <source>
+        <include>
+            <directory>../Source</directory>
+        </include>
+        <exclude>
+            <!-- Avoid measuring the frontend asset scripts for PHP coverage metrics -->
+            <directory>../Source/Private/Assets</directory>
+        </exclude>
+    </source>
     <php>
         <env name="PATCHWORK_BLACKLIST" value="Source/:vendor/"/>
     </php>

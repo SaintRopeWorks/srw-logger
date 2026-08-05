@@ -1,0 +1,701 @@
+[29-Jul-2026 03:09:52 UTC] PHP Fatal error:  Cannot mix bracketed namespace declarations with unbracketed namespace declarations in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/Integration/Private/Classes/SRW_Log_Tests.php on line 19
+[29-Jul-2026 03:09:52 UTC] PHP Stack trace:
+[29-Jul-2026 03:09:52 UTC] PHP   1. {main}() /home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest:0
+[29-Jul-2026 03:09:52 UTC] PHP   2. {closure:/home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest:21-215}() /home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest:215
+[29-Jul-2026 03:09:52 UTC] PHP   3. Pest\Kernel->handle($originalArguments = [0 => '/home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest', 1 => '--test-directory=/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests', 2 => '--configuration=/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/phpunit.xml'], $arguments = [0 => '/home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest', 2 => '--configuration=/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/phpunit.xml']) /home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest:207
+[29-Jul-2026 03:09:52 UTC] PHP   4. PHPUnit\TextUI\Application->run($argv = [0 => '/home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/bin/pest', 2 => '--configuration=/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/phpunit.xml']) /home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/src/Kernel.php:117
+[29-Jul-2026 03:09:52 UTC] PHP   5. PHPUnit\TextUI\Application->buildTestSuite($configuration = class PHPUnit\TextUI\Configuration\Configuration { private readonly array $cliArguments = []; private readonly ?string $configurationFile = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/phpunit.xml'; private readonly ?string $bootstrap = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/tests-bootstrap.php'; private readonly array $bootstrapForTestSuite = []; private readonly bool $cacheResult = TRUE; private readonly ?string $cacheDirectory = NULL; private readonly ?string $coverageCacheDirectory = NULL; private readonly PHPUnit\TextUI\Configuration\Source $source = class PHPUnit\TextUI\Configuration\Source { private readonly ?string $baseline = NULL; private readonly bool $ignoreBaseline = FALSE; private readonly PHPUnit\TextUI\Configuration\FilterDirectoryCollection $includeDirectories = class PHPUnit\TextUI\Configuration\FilterDirectoryCollection { ... }; private readonly PHPUnit\TextUI\Configuration\FileCollection $includeFiles = class PHPUnit\TextUI\Configuration\FileCollection { ... }; private readonly PHPUnit\TextUI\Configuration\FilterDirectoryCollection $excludeDirectories = class PHPUnit\TextUI\Configuration\FilterDirectoryCollection { ... }; private readonly PHPUnit\TextUI\Configuration\FileCollection $excludeFiles = class PHPUnit\TextUI\Configuration\FileCollection { ... }; private readonly bool $restrictNotices = FALSE; private readonly bool $restrictWarnings = FALSE; private readonly bool $ignoreSuppressionOfDeprecations = FALSE; private readonly bool $ignoreSuppressionOfPhpDeprecations = FALSE; private readonly bool $ignoreSuppressionOfErrors = FALSE; private readonly bool $ignoreSuppressionOfNotices = FALSE; private readonly bool $ignoreSuppressionOfPhpNotices = FALSE; private readonly bool $ignoreSuppressionOfWarnings = FALSE; private readonly bool $ignoreSuppressionOfPhpWarnings = FALSE; private readonly bool $ignoreSelfDeprecations = FALSE; private readonly bool $ignoreDirectDeprecations = FALSE; private readonly bool $ignoreIndirectDeprecations = FALSE; private readonly bool $identifyIssueTrigger = TRUE; private readonly array $deprecationTriggers = [...] }; private readonly bool $pathCoverage = FALSE; private readonly ?string $coverageClover = NULL; private readonly ?string $coverageCobertura = NULL; private readonly ?string $coverageCrap4j = NULL; private readonly int $coverageCrap4jThreshold = 30; private readonly ?string $coverageHtml = NULL; private readonly int $coverageHtmlLowUpperBound = 50; private readonly int $coverageHtmlHighLowerBound = 90; private readonly string $coverageHtmlColorSuccessLow = '#dff0d8'; private readonly string $coverageHtmlColorSuccessMedium = '#c3e3b5'; private readonly string $coverageHtmlColorSuccessHigh = '#99cb84'; private readonly string $coverageHtmlColorWarning = '#fcf8e3'; private readonly string $coverageHtmlColorDanger = '#f2dede'; private readonly ?string $coverageHtmlCustomCssFile = NULL; private readonly ?string $coverageOpenClover = NULL; private readonly ?string $coveragePhp = NULL; private readonly ?string $coverageText = NULL; private readonly bool $coverageTextShowUncoveredFiles = FALSE; private readonly bool $coverageTextShowOnlySummary = FALSE; private readonly ?string $coverageXml = NULL; private readonly bool $coverageXmlIncludeSource = TRUE; private readonly string $testResultCacheFile = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/.phpunit.result.cache'; private readonly bool $ignoreDeprecatedCodeUnitsFromCodeCoverage = FALSE; private readonly bool $disableCodeCoverageIgnore = FALSE; private readonly bool $failOnAllIssues = FALSE; private readonly bool $failOnDeprecation = FALSE; private readonly bool $failOnPhpunitDeprecation = FALSE; private readonly bool $failOnPhpunitNotice = FALSE; private readonly bool $failOnPhpunitWarning = TRUE; private readonly bool $failOnEmptyTestSuite = FALSE; private readonly bool $failOnIncomplete = FALSE; private readonly bool $failOnNotice = FALSE; private readonly bool $failOnRisky = FALSE; private readonly bool $failOnSkipped = FALSE; private readonly bool $failOnWarning = FALSE; private readonly bool $doNotFailOnDeprecation = FALSE; private readonly bool $doNotFailOnPhpunitDeprecation = FALSE; private readonly bool $doNotFailOnPhpunitNotice = FALSE; private readonly bool $doNotFailOnPhpunitWarning = FALSE; private readonly bool $doNotFailOnEmptyTestSuite = FALSE; private readonly bool $doNotFailOnIncomplete = FALSE; private readonly bool $doNotFailOnNotice = FALSE; private readonly bool $doNotFailOnRisky = FALSE; private readonly bool $doNotFailOnSkipped = FALSE; private readonly bool $doNotFailOnWarning = FALSE; private readonly bool $stopOnDefect = FALSE; private readonly bool $stopOnDeprecation = FALSE; private readonly ?string $specificDeprecationToStopOn = NULL; private readonly bool $stopOnError = FALSE; private readonly bool $stopOnFailure = FALSE; private readonly bool $stopOnIncomplete = FALSE; private readonly bool $stopOnNotice = FALSE; private readonly bool $stopOnRisky = FALSE; private readonly bool $stopOnSkipped = FALSE; private readonly bool $stopOnWarning = FALSE; private readonly bool $outputToStandardErrorStream = FALSE; private readonly int $columns = 80; private readonly bool $noExtensions = FALSE; private readonly ?string $pharExtensionDirectory = NULL; private readonly array $extensionBootstrappers = []; private readonly bool $backupGlobals = FALSE; private readonly bool $backupStaticProperties = FALSE; private readonly bool $beStrictAboutChangesToGlobalState = FALSE; private readonly bool $colors = TRUE; private readonly bool $processIsolation = FALSE; private readonly bool $enforceTimeLimit = FALSE; private readonly int $defaultTimeLimit = 1; private readonly int $timeoutForSmallTests = 1; private readonly int $timeoutForMediumTests = 10; private readonly int $timeoutForLargeTests = 60; private readonly bool $reportUselessTests = TRUE; private readonly bool $strictCoverage = FALSE; private readonly bool $disallowTestOutput = FALSE; private readonly bool $displayDetailsOnAllIssues = FALSE; private readonly bool $displayDetailsOnIncompleteTests = FALSE; private readonly bool $displayDetailsOnSkippedTests = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerDeprecations = FALSE; private readonly bool $displayDetailsOnPhpunitDeprecations = FALSE; private readonly bool $displayDetailsOnPhpunitNotices = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerErrors = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerNotices = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerWarnings = TRUE; private readonly bool $reverseDefectList = FALSE; private readonly bool $requireCoverageMetadata = FALSE; private readonly bool $noProgress = FALSE; private readonly bool $noResults = FALSE; private readonly bool $noOutput = FALSE; private readonly int $executionOrder = 0; private readonly int $executionOrderDefects = 0; private readonly bool $resolveDependencies = TRUE; private readonly ?string $logfileTeamcity = NULL; private readonly ?string $logfileJunit = NULL; private readonly ?string $logfileOtr = NULL; private readonly bool $includeGitInformationInOtrLogfile = FALSE; private readonly ?string $logfileTestdoxHtml = NULL; private readonly ?string $logfileTestdoxText = NULL; private readonly ?string $logEventsText = NULL; private readonly ?string $logEventsVerboseText = NULL; private readonly ?array $testsCovering = NULL; private readonly ?array $testsUsing = NULL; private readonly ?array $testsRequiringPhpExtension = NULL; private readonly bool $teamCityOutput = FALSE; private readonly bool $testDoxOutput = FALSE; private readonly bool $testDoxOutputSummary = FALSE; private readonly ?string $filter = NULL; private readonly ?string $excludeFilter = NULL; private readonly array $groups = []; private readonly array $excludeGroups = []; private readonly int $randomOrderSeed = 1785294592; private readonly bool $includeUncoveredFiles = TRUE; private readonly PHPUnit\TextUI\Configuration\TestSuiteCollection $testSuite = class PHPUnit\TextUI\Configuration\TestSuiteCollection { private readonly array $testSuites = [...] }; private readonly string $includeTestSuite = ''; private readonly string $excludeTestSuite = ''; private readonly ?string $defaultTestSuite = NULL; private readonly bool $ignoreTestSelectionInXmlConfiguration = FALSE; private readonly array $testSuffixes = [0 => 'Test.php', 1 => '.phpt']; private readonly PHPUnit\TextUI\Configuration\Php $php = class PHPUnit\TextUI\Configuration\Php { private readonly PHPUnit\TextUI\Configuration\DirectoryCollection $includePaths = class PHPUnit\TextUI\Configuration\DirectoryCollection { ... }; private readonly PHPUnit\TextUI\Configuration\IniSettingCollection $iniSettings = class PHPUnit\TextUI\Configuration\IniSettingCollection { ... }; private readonly PHPUnit\TextUI\Configuration\ConstantCollection $constants = class PHPUnit\TextUI\Configuration\ConstantCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $globalVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $envVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $postVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $getVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $cookieVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $serverVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $filesVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $requestVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... } }; private readonly bool $controlGarbageCollector = FALSE; private readonly int $numberOfTestsBeforeGarbageCollection = 100; private readonly ?string $generateBaseline = NULL; ... }) /home/sainbsbl/.local/share/pest-global/vendor/phpunit/phpunit/src/TextUI/Application.php:196
+[29-Jul-2026 03:09:52 UTC] PHP   6. PHPUnit\TextUI\Configuration\TestSuiteBuilder->build($configuration = class PHPUnit\TextUI\Configuration\Configuration { private readonly array $cliArguments = []; private readonly ?string $configurationFile = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/phpunit.xml'; private readonly ?string $bootstrap = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/tests-bootstrap.php'; private readonly array $bootstrapForTestSuite = []; private readonly bool $cacheResult = TRUE; private readonly ?string $cacheDirectory = NULL; private readonly ?string $coverageCacheDirectory = NULL; private readonly PHPUnit\TextUI\Configuration\Source $source = class PHPUnit\TextUI\Configuration\Source { private readonly ?string $baseline = NULL; private readonly bool $ignoreBaseline = FALSE; private readonly PHPUnit\TextUI\Configuration\FilterDirectoryCollection $includeDirectories = class PHPUnit\TextUI\Configuration\FilterDirectoryCollection { ... }; private readonly PHPUnit\TextUI\Configuration\FileCollection $includeFiles = class PHPUnit\TextUI\Configuration\FileCollection { ... }; private readonly PHPUnit\TextUI\Configuration\FilterDirectoryCollection $excludeDirectories = class PHPUnit\TextUI\Configuration\FilterDirectoryCollection { ... }; private readonly PHPUnit\TextUI\Configuration\FileCollection $excludeFiles = class PHPUnit\TextUI\Configuration\FileCollection { ... }; private readonly bool $restrictNotices = FALSE; private readonly bool $restrictWarnings = FALSE; private readonly bool $ignoreSuppressionOfDeprecations = FALSE; private readonly bool $ignoreSuppressionOfPhpDeprecations = FALSE; private readonly bool $ignoreSuppressionOfErrors = FALSE; private readonly bool $ignoreSuppressionOfNotices = FALSE; private readonly bool $ignoreSuppressionOfPhpNotices = FALSE; private readonly bool $ignoreSuppressionOfWarnings = FALSE; private readonly bool $ignoreSuppressionOfPhpWarnings = FALSE; private readonly bool $ignoreSelfDeprecations = FALSE; private readonly bool $ignoreDirectDeprecations = FALSE; private readonly bool $ignoreIndirectDeprecations = FALSE; private readonly bool $identifyIssueTrigger = TRUE; private readonly array $deprecationTriggers = [...] }; private readonly bool $pathCoverage = FALSE; private readonly ?string $coverageClover = NULL; private readonly ?string $coverageCobertura = NULL; private readonly ?string $coverageCrap4j = NULL; private readonly int $coverageCrap4jThreshold = 30; private readonly ?string $coverageHtml = NULL; private readonly int $coverageHtmlLowUpperBound = 50; private readonly int $coverageHtmlHighLowerBound = 90; private readonly string $coverageHtmlColorSuccessLow = '#dff0d8'; private readonly string $coverageHtmlColorSuccessMedium = '#c3e3b5'; private readonly string $coverageHtmlColorSuccessHigh = '#99cb84'; private readonly string $coverageHtmlColorWarning = '#fcf8e3'; private readonly string $coverageHtmlColorDanger = '#f2dede'; private readonly ?string $coverageHtmlCustomCssFile = NULL; private readonly ?string $coverageOpenClover = NULL; private readonly ?string $coveragePhp = NULL; private readonly ?string $coverageText = NULL; private readonly bool $coverageTextShowUncoveredFiles = FALSE; private readonly bool $coverageTextShowOnlySummary = FALSE; private readonly ?string $coverageXml = NULL; private readonly bool $coverageXmlIncludeSource = TRUE; private readonly string $testResultCacheFile = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/.phpunit.result.cache'; private readonly bool $ignoreDeprecatedCodeUnitsFromCodeCoverage = FALSE; private readonly bool $disableCodeCoverageIgnore = FALSE; private readonly bool $failOnAllIssues = FALSE; private readonly bool $failOnDeprecation = FALSE; private readonly bool $failOnPhpunitDeprecation = FALSE; private readonly bool $failOnPhpunitNotice = FALSE; private readonly bool $failOnPhpunitWarning = TRUE; private readonly bool $failOnEmptyTestSuite = FALSE; private readonly bool $failOnIncomplete = FALSE; private readonly bool $failOnNotice = FALSE; private readonly bool $failOnRisky = FALSE; private readonly bool $failOnSkipped = FALSE; private readonly bool $failOnWarning = FALSE; private readonly bool $doNotFailOnDeprecation = FALSE; private readonly bool $doNotFailOnPhpunitDeprecation = FALSE; private readonly bool $doNotFailOnPhpunitNotice = FALSE; private readonly bool $doNotFailOnPhpunitWarning = FALSE; private readonly bool $doNotFailOnEmptyTestSuite = FALSE; private readonly bool $doNotFailOnIncomplete = FALSE; private readonly bool $doNotFailOnNotice = FALSE; private readonly bool $doNotFailOnRisky = FALSE; private readonly bool $doNotFailOnSkipped = FALSE; private readonly bool $doNotFailOnWarning = FALSE; private readonly bool $stopOnDefect = FALSE; private readonly bool $stopOnDeprecation = FALSE; private readonly ?string $specificDeprecationToStopOn = NULL; private readonly bool $stopOnError = FALSE; private readonly bool $stopOnFailure = FALSE; private readonly bool $stopOnIncomplete = FALSE; private readonly bool $stopOnNotice = FALSE; private readonly bool $stopOnRisky = FALSE; private readonly bool $stopOnSkipped = FALSE; private readonly bool $stopOnWarning = FALSE; private readonly bool $outputToStandardErrorStream = FALSE; private readonly int $columns = 80; private readonly bool $noExtensions = FALSE; private readonly ?string $pharExtensionDirectory = NULL; private readonly array $extensionBootstrappers = []; private readonly bool $backupGlobals = FALSE; private readonly bool $backupStaticProperties = FALSE; private readonly bool $beStrictAboutChangesToGlobalState = FALSE; private readonly bool $colors = TRUE; private readonly bool $processIsolation = FALSE; private readonly bool $enforceTimeLimit = FALSE; private readonly int $defaultTimeLimit = 1; private readonly int $timeoutForSmallTests = 1; private readonly int $timeoutForMediumTests = 10; private readonly int $timeoutForLargeTests = 60; private readonly bool $reportUselessTests = TRUE; private readonly bool $strictCoverage = FALSE; private readonly bool $disallowTestOutput = FALSE; private readonly bool $displayDetailsOnAllIssues = FALSE; private readonly bool $displayDetailsOnIncompleteTests = FALSE; private readonly bool $displayDetailsOnSkippedTests = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerDeprecations = FALSE; private readonly bool $displayDetailsOnPhpunitDeprecations = FALSE; private readonly bool $displayDetailsOnPhpunitNotices = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerErrors = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerNotices = FALSE; private readonly bool $displayDetailsOnTestsThatTriggerWarnings = TRUE; private readonly bool $reverseDefectList = FALSE; private readonly bool $requireCoverageMetadata = FALSE; private readonly bool $noProgress = FALSE; private readonly bool $noResults = FALSE; private readonly bool $noOutput = FALSE; private readonly int $executionOrder = 0; private readonly int $executionOrderDefects = 0; private readonly bool $resolveDependencies = TRUE; private readonly ?string $logfileTeamcity = NULL; private readonly ?string $logfileJunit = NULL; private readonly ?string $logfileOtr = NULL; private readonly bool $includeGitInformationInOtrLogfile = FALSE; private readonly ?string $logfileTestdoxHtml = NULL; private readonly ?string $logfileTestdoxText = NULL; private readonly ?string $logEventsText = NULL; private readonly ?string $logEventsVerboseText = NULL; private readonly ?array $testsCovering = NULL; private readonly ?array $testsUsing = NULL; private readonly ?array $testsRequiringPhpExtension = NULL; private readonly bool $teamCityOutput = FALSE; private readonly bool $testDoxOutput = FALSE; private readonly bool $testDoxOutputSummary = FALSE; private readonly ?string $filter = NULL; private readonly ?string $excludeFilter = NULL; private readonly array $groups = []; private readonly array $excludeGroups = []; private readonly int $randomOrderSeed = 1785294592; private readonly bool $includeUncoveredFiles = TRUE; private readonly PHPUnit\TextUI\Configuration\TestSuiteCollection $testSuite = class PHPUnit\TextUI\Configuration\TestSuiteCollection { private readonly array $testSuites = [...] }; private readonly string $includeTestSuite = ''; private readonly string $excludeTestSuite = ''; private readonly ?string $defaultTestSuite = NULL; private readonly bool $ignoreTestSelectionInXmlConfiguration = FALSE; private readonly array $testSuffixes = [0 => 'Test.php', 1 => '.phpt']; private readonly PHPUnit\TextUI\Configuration\Php $php = class PHPUnit\TextUI\Configuration\Php { private readonly PHPUnit\TextUI\Configuration\DirectoryCollection $includePaths = class PHPUnit\TextUI\Configuration\DirectoryCollection { ... }; private readonly PHPUnit\TextUI\Configuration\IniSettingCollection $iniSettings = class PHPUnit\TextUI\Configuration\IniSettingCollection { ... }; private readonly PHPUnit\TextUI\Configuration\ConstantCollection $constants = class PHPUnit\TextUI\Configuration\ConstantCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $globalVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $envVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $postVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $getVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $cookieVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $serverVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $filesVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... }; private readonly PHPUnit\TextUI\Configuration\VariableCollection $requestVariables = class PHPUnit\TextUI\Configuration\VariableCollection { ... } }; private readonly bool $controlGarbageCollector = FALSE; private readonly int $numberOfTestsBeforeGarbageCollection = 100; private readonly ?string $generateBaseline = NULL; ... }) /home/sainbsbl/.local/share/pest-global/vendor/phpunit/phpunit/src/TextUI/Application.php:389
+[29-Jul-2026 03:09:52 UTC] PHP   7. PHPUnit\TextUI\XmlConfiguration\TestSuiteMapper->map($xmlConfigurationFile = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/phpunit.xml', $configuredTestSuites = class PHPUnit\TextUI\Configuration\TestSuiteCollection { private readonly array $testSuites = [0 => class PHPUnit\TextUI\Configuration\TestSuite { ... }, 1 => class PHPUnit\TextUI\Configuration\TestSuite { ... }] }, $includeTestSuites = [], $excludeTestSuites = []) /home/sainbsbl/.local/share/pest-global/vendor/phpunit/phpunit/src/TextUI/Configuration/TestSuiteBuilder.php:75
+[29-Jul-2026 03:09:52 UTC] PHP   8. PHPUnit\Framework\TestSuite->addTestFile($filename = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/Integration/Private/Classes/SRW_Log_Tests.php', $groups = []) /home/sainbsbl/.local/share/pest-global/vendor/phpunit/phpunit/src/TextUI/Configuration/Xml/TestSuiteMapper.php:104
+[29-Jul-2026 03:09:52 UTC] PHP   9. PHPUnit\Runner\TestSuiteLoader->load($suiteClassFile = '/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/Integration/Private/Classes/SRW_Log_Tests.php') /home/sainbsbl/.local/share/pest-global/vendor/phpunit/phpunit/src/Framework/TestSuite.php:237
+[29-Jul-2026 03:09:52 UTC] PHP  10. PHPUnit\Runner\TestSuiteLoader::{closure:/home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/overrides/Runner/TestSuiteLoader.php:90-98}() /home/sainbsbl/.local/share/pest-global/vendor/pestphp/pest/overrides/Runner/TestSuiteLoader.php:98
+[30-Jul-2026 11:40:07 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_Logger" not found in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[30-Jul-2026 12:01:14 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_Logger" not found in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[30-Jul-2026 12:07:24 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_Logger" not found in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[30-Jul-2026 12:08:47 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_Logger" not found in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[30-Jul-2026 12:09:21 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Source\Public\Classes\SRW_Logger" not found in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[30-Jul-2026 12:13:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:785
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(696): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(253): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(264): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(284): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(221): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(159): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 785
+[30-Jul-2026 12:14:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:785
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(696): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(253): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(264): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(284): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(221): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(159): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 785
+[30-Jul-2026 12:16:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:785
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(696): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(253): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(264): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(284): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(221): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(159): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 785
+[30-Jul-2026 12:17:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:784
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(695): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 784
+[30-Jul-2026 12:19:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:785
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(696): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 785
+[30-Jul-2026 12:21:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:785
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(696): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 Command line code(1): Test->doit()
+#8 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 785
+[30-Jul-2026 12:23:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:784
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(695): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 Command line code(1): Test->doit()
+#8 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 784
+[30-Jul-2026 12:51:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 Command line code(1): Test->doit()
+#8 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 12:59:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 13:10:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 13:22:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 [internal function]: {closure:Command line code:1}()
+#8 Command line code(1): array_map()
+#9 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 13:27:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 [internal function]: Test->{closure:Test::doit():1}()
+#8 Command line code(1): array_map()
+#9 Command line code(1): Test->doit()
+#10 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 13:40:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/test.php(11): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 [internal function]: {closure:/home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/test.php:10}()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/test.php(9): array_map()
+#9 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 13:43:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 [internal function]: Test->{closure:Test::doit():12}()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#9 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#10 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 13:52:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testnoclosure.php(9): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 14:05:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 14:47:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:803
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(714): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 803
+[30-Jul-2026 14:48:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:791
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(702): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 791
+[30-Jul-2026 14:50:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:794
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(705): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 794
+[30-Jul-2026 15:00:37 UTC] PHP Parse error:  syntax error, unexpected identifier "SRW_Logger" in php shell code on line 2
+[30-Jul-2026 15:00:53 UTC] PHP Parse error:  syntax error, unexpected identifier "SRW_Logger" in php shell code on line 2
+[30-Jul-2026 15:02:23 UTC] PHP Parse error:  syntax error, unexpected identifier "php", expecting "," or ";" in php shell code on line 2
+[30-Jul-2026 15:02:23 UTC] PHP Parse error:  syntax error, unexpected token "use" in php shell code on line 1
+[30-Jul-2026 15:02:23 UTC] PHP Warning:  Uncaught Error: Undefined constant "php" in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:02:57 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:06:13 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:07:17 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:07:23 UTC] PHP Warning:  Uncaught Error: Undefined constant "SRW_Logger" in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:07:27 UTC] PHP Warning:  Uncaught Error: Undefined constant "SRW_Logger" in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:08:38 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:09:34 UTC] PHP Warning:  Uncaught Error: Undefined constant "SRW_Logger" in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 15:11:27 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:09:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 Command line code(1): SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 Command line code(1): runLog()
+#8 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 17:13:57 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:14:10 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:14:27 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:14:34 UTC] PHP Warning:  Undefined variable $bytes in php shell code on line 1
+[30-Jul-2026 17:14:34 UTC] PHP Stack trace:
+[30-Jul-2026 17:14:34 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:17:47 UTC] PHP Warning:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:18:17 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:18:24 UTC] PHP Parse error:  syntax error, unexpected token "echo", expecting "," or ";" in php shell code on line 2
+[30-Jul-2026 17:18:33 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:18:37 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:18:59 UTC] PHP Warning:  Uncaught Error: Class "SRW_Logger" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:23:28 UTC] PHP Warning:  Undefined variable $logger_source_file in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 528
+[30-Jul-2026 17:23:28 UTC] PHP Stack trace:
+[30-Jul-2026 17:23:28 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:23:28 UTC] PHP   2. ReflectionMethod->invoke($object = NULL) php shell code:1
+[30-Jul-2026 17:23:28 UTC] PHP   3. SRW\Logger\Public\Classes\SRW_Logger::get_caller_context() php shell code:1
+[30-Jul-2026 17:23:28 UTC] PHP Warning:  Undefined variable $logger_source_file2 in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 530
+[30-Jul-2026 17:23:28 UTC] PHP Stack trace:
+[30-Jul-2026 17:23:28 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:23:28 UTC] PHP   2. ReflectionMethod->invoke($object = NULL) php shell code:1
+[30-Jul-2026 17:23:28 UTC] PHP   3. SRW\Logger\Public\Classes\SRW_Logger::get_caller_context() php shell code:1
+[30-Jul-2026 17:23:28 UTC] PHP Warning:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 php shell code(1): ReflectionMethod->invoke()
+#3 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 17:25:10 UTC] PHP Warning:  Undefined variable $logger_source_file in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 528
+[30-Jul-2026 17:25:10 UTC] PHP Stack trace:
+[30-Jul-2026 17:25:10 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:25:10 UTC] PHP   2. ReflectionMethod->invoke($object = NULL, ...$args = variadic()) php shell code:1
+[30-Jul-2026 17:25:10 UTC] PHP   3. SRW\Logger\Public\Classes\SRW_Logger::info($message = 'test', $data = *uninitialized*) php shell code:1
+[30-Jul-2026 17:25:10 UTC] PHP   4. SRW\Logger\Public\Classes\SRW_Logger::get($force = *uninitialized*) /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:158
+[30-Jul-2026 17:25:10 UTC] PHP   5. SRW\Logger\Public\Classes\SRW_Logger::get_call_name() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:220
+[30-Jul-2026 17:25:10 UTC] PHP   6. SRW\Logger\Public\Classes\SRW_Logger::get_current_call() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:283
+[30-Jul-2026 17:25:10 UTC] PHP   7. SRW\Logger\Public\Classes\SRW_Logger::get_calls() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:263
+[30-Jul-2026 17:25:10 UTC] PHP   8. SRW\Logger\Public\Classes\SRW_Logger::get_caller_context() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:252
+[30-Jul-2026 17:25:10 UTC] PHP Warning:  Undefined variable $logger_source_file2 in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 530
+[30-Jul-2026 17:25:10 UTC] PHP Stack trace:
+[30-Jul-2026 17:25:10 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:25:10 UTC] PHP   2. ReflectionMethod->invoke($object = NULL, ...$args = variadic()) php shell code:1
+[30-Jul-2026 17:25:10 UTC] PHP   3. SRW\Logger\Public\Classes\SRW_Logger::info($message = 'test', $data = *uninitialized*) php shell code:1
+[30-Jul-2026 17:25:10 UTC] PHP   4. SRW\Logger\Public\Classes\SRW_Logger::get($force = *uninitialized*) /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:158
+[30-Jul-2026 17:25:10 UTC] PHP   5. SRW\Logger\Public\Classes\SRW_Logger::get_call_name() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:220
+[30-Jul-2026 17:25:10 UTC] PHP   6. SRW\Logger\Public\Classes\SRW_Logger::get_current_call() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:283
+[30-Jul-2026 17:25:10 UTC] PHP   7. SRW\Logger\Public\Classes\SRW_Logger::get_calls() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:263
+[30-Jul-2026 17:25:10 UTC] PHP   8. SRW\Logger\Public\Classes\SRW_Logger::get_caller_context() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:252
+[30-Jul-2026 17:25:10 UTC] PHP Warning:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 php shell code(1): ReflectionMethod->invoke()
+#8 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 17:25:20 UTC] PHP Warning:  Uncaught TypeError: ReflectionMethod::invoke(): Argument #1 ($object) must be of type ?object, string given in php shell code:1
+Stack trace:
+#0 php shell code(1): ReflectionMethod->invoke()
+#1 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:26:25 UTC] PHP Warning:  Undefined variable $logger_source_file in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 528
+[30-Jul-2026 17:26:25 UTC] PHP Stack trace:
+[30-Jul-2026 17:26:25 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:26:25 UTC] PHP   2. ReflectionMethod->invoke($object = NULL, ...$args = variadic()) php shell code:1
+[30-Jul-2026 17:26:25 UTC] PHP   3. SRW\Logger\Public\Classes\SRW_Logger::info($message = 'test', $data = *uninitialized*) php shell code:1
+[30-Jul-2026 17:26:25 UTC] PHP   4. SRW\Logger\Public\Classes\SRW_Logger::get($force = *uninitialized*) /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:158
+[30-Jul-2026 17:26:25 UTC] PHP   5. SRW\Logger\Public\Classes\SRW_Logger::get_call_name() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:220
+[30-Jul-2026 17:26:25 UTC] PHP   6. SRW\Logger\Public\Classes\SRW_Logger::get_current_call() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:283
+[30-Jul-2026 17:26:25 UTC] PHP   7. SRW\Logger\Public\Classes\SRW_Logger::get_calls() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:263
+[30-Jul-2026 17:26:25 UTC] PHP   8. SRW\Logger\Public\Classes\SRW_Logger::get_caller_context() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:252
+[30-Jul-2026 17:26:25 UTC] PHP Warning:  Undefined variable $logger_source_file2 in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 530
+[30-Jul-2026 17:26:25 UTC] PHP Stack trace:
+[30-Jul-2026 17:26:25 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:26:25 UTC] PHP   2. ReflectionMethod->invoke($object = NULL, ...$args = variadic()) php shell code:1
+[30-Jul-2026 17:26:25 UTC] PHP   3. SRW\Logger\Public\Classes\SRW_Logger::info($message = 'test', $data = *uninitialized*) php shell code:1
+[30-Jul-2026 17:26:25 UTC] PHP   4. SRW\Logger\Public\Classes\SRW_Logger::get($force = *uninitialized*) /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:158
+[30-Jul-2026 17:26:25 UTC] PHP   5. SRW\Logger\Public\Classes\SRW_Logger::get_call_name() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:220
+[30-Jul-2026 17:26:25 UTC] PHP   6. SRW\Logger\Public\Classes\SRW_Logger::get_current_call() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:283
+[30-Jul-2026 17:26:25 UTC] PHP   7. SRW\Logger\Public\Classes\SRW_Logger::get_calls() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:263
+[30-Jul-2026 17:26:25 UTC] PHP   8. SRW\Logger\Public\Classes\SRW_Logger::get_caller_context() /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:252
+[30-Jul-2026 17:26:25 UTC] PHP Warning:  Uncaught Error: Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:795
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(706): SRW\Logger\Public\Classes\SRW_Logger::sanitize()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(252): SRW\Logger\Public\Classes\SRW_Logger::get_caller_context()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(263): SRW\Logger\Public\Classes\SRW_Logger::get_calls()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(283): SRW\Logger\Public\Classes\SRW_Logger::get_current_call()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(220): SRW\Logger\Public\Classes\SRW_Logger::get_call_name()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(158): SRW\Logger\Public\Classes\SRW_Logger::get()
+#6 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::info()
+#7 php shell code(1): ReflectionMethod->invoke()
+#8 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 795
+[30-Jul-2026 17:49:08 UTC] PHP Warning:  Uncaught Error: Call to undefined function collect() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:49:17 UTC] PHP Warning:  Undefined variable $collection in php shell code on line 1
+[30-Jul-2026 17:49:17 UTC] PHP Stack trace:
+[30-Jul-2026 17:49:17 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:49:17 UTC] PHP Warning:  Uncaught Error: Call to a member function skipUntil() on null in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 17:49:25 UTC] PHP Warning:  Undefined variable $result in php shell code on line 1
+[30-Jul-2026 17:49:25 UTC] PHP Stack trace:
+[30-Jul-2026 17:49:25 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 17:49:48 UTC] PHP Warning:  Undefined variable $result in php shell code on line 1
+[30-Jul-2026 17:49:48 UTC] PHP Stack trace:
+[30-Jul-2026 17:49:48 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:00:06 UTC] PHP Warning:  Uncaught Error: Call to undefined function collect() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 18:00:22 UTC] PHP Warning:  Undefined variable $trace in php shell code on line 1
+[30-Jul-2026 18:00:22 UTC] PHP Stack trace:
+[30-Jul-2026 18:00:22 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:02:29 UTC] PHP Warning:  Uncaught Error: Call to undefined function collect() in php shell code:1
+Stack trace:
+#0 php shell code(1): Test->doit()
+#1 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 18:02:34 UTC] PHP Warning:  Undefined variable $trace in php shell code on line 1
+[30-Jul-2026 18:02:34 UTC] PHP Stack trace:
+[30-Jul-2026 18:02:34 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:07:21 UTC] PHP Warning:  Uncaught Error: Call to undefined function collect() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 18:07:35 UTC] PHP Warning:  Undefined variable $collection in php shell code on line 1
+[30-Jul-2026 18:07:35 UTC] PHP Stack trace:
+[30-Jul-2026 18:07:35 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:10:26 UTC] PHP Fatal error:  Cannot redeclare class Test (previously declared in php shell code:1) in php shell code on line 1
+[30-Jul-2026 18:10:26 UTC] PHP Stack trace:
+[30-Jul-2026 18:10:26 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:10:49 UTC] PHP Warning:  Uncaught Error: Call to undefined method Test::calldoit() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 18:10:49 UTC] PHP Stack trace:
+[30-Jul-2026 18:10:49 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:11:07 UTC] PHP Warning:  Undefined variable $trace2 in php shell code on line 1
+[30-Jul-2026 18:11:07 UTC] PHP Stack trace:
+[30-Jul-2026 18:11:07 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:11:07 UTC] PHP   2. {main}() php shell code:0
+[30-Jul-2026 18:11:30 UTC] PHP Fatal error:  Cannot redeclare class Test (previously declared in php shell code:1) in php shell code on line 1
+[30-Jul-2026 18:11:30 UTC] PHP Stack trace:
+[30-Jul-2026 18:11:30 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:11:30 UTC] PHP   2. {main}() php shell code:0
+[30-Jul-2026 18:11:39 UTC] PHP Warning:  Uncaught Error: Call to undefined method Test::calldoit() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 18:11:39 UTC] PHP Stack trace:
+[30-Jul-2026 18:11:39 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:11:39 UTC] PHP   2. {main}() php shell code:0
+[30-Jul-2026 18:11:49 UTC] PHP Warning:  Undefined variable $trace2 in php shell code on line 1
+[30-Jul-2026 18:11:49 UTC] PHP Stack trace:
+[30-Jul-2026 18:11:49 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 18:11:49 UTC] PHP   2. {main}() php shell code:0
+[30-Jul-2026 18:11:49 UTC] PHP   3. {main}() php shell code:0
+[30-Jul-2026 18:14:44 UTC] PHP Parse error:  syntax error, unexpected identifier "var_dump" in php shell code on line 2
+[30-Jul-2026 18:16:27 UTC] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in php shell code on line 1
+[30-Jul-2026 18:17:12 UTC] PHP Parse error:  syntax error, unexpected identifier "clear" in php shell code on line 2
+[30-Jul-2026 23:17:15 UTC] PHP Fatal error:  Cannot redeclare class Test (previously declared in php shell code:1) in php shell code on line 1
+[30-Jul-2026 23:17:15 UTC] PHP Stack trace:
+[30-Jul-2026 23:17:15 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 23:17:34 UTC] PHP Warning:  Uncaught Error: Call to undefined method Test::closureit() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 23:17:34 UTC] PHP Stack trace:
+[30-Jul-2026 23:17:34 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 23:25:42 UTC] PHP Warning:  Uncaught Error: Call to undefined function var_dumo() in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 23:28:22 UTC] PHP Warning:  Uncaught Error: Call to a member function toArray() on array in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 23:32:42 UTC] PHP Fatal error:  Cannot redeclare class Test (previously declared in php shell code:1) in php shell code on line 1
+[30-Jul-2026 23:32:42 UTC] PHP Stack trace:
+[30-Jul-2026 23:32:42 UTC] PHP   1. {main}() php shell code:0
+[30-Jul-2026 23:34:23 UTC] PHP Warning:  Uncaught ArgumentCountError: array_map() expects at least 2 arguments, 1 given in php shell code:2
+Stack trace:
+#0 php shell code(2): array_map()
+#1 php shell code(1): Test->closureit()
+#2 {main}
+  thrown in php shell code on line 2
+[04-Aug-2026 13:05:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method SRW\Logger\Public\Classes\SRW_Logger::info() in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php:13
+Stack trace:
+#0 [internal function]: Test->{closure:Test::doit():12}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#3 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php on line 13
+[04-Aug-2026 13:12:11 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:12:17 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:12:34 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:19:35 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:23:27 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:24:20 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:24:44 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:34:47 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:119
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():116}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(115): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(129): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(77): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(60): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 119
+[04-Aug-2026 13:41:25 UTC] PHP Fatal error:  Uncaught Error: Class "SRW\Logger\Public\Classes\SRW_CallStackFrame" not found in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php:120
+Stack trace:
+#0 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():117}()
+#1 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(116): Illuminate\Support\Collection->map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(130): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(134): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(78): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(61): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#9 [internal function]: Test->{closure:Test::doit():12}()
+#10 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#12 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php on line 120
+[04-Aug-2026 13:57:28 UTC] SRW_Logger: family log fan-out failed for "testclass": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 13:58:05 UTC] SRW_Logger: family log fan-out failed for "testclass": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 13:58:16 UTC] SRW_Logger: family log fan-out failed for "testclass": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 14:15:14 UTC] SRW_Logger: family log fan-out failed for "testclass": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 14:31:08 UTC] SRW_Logger: family log fan-out failed for "global scope": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 15:22:49 UTC] SRW_Logger: family log fan-out failed for "global scope": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 15:22:49 UTC] SRW_Logger: family log fan-out failed for "global scope": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()
+[04-Aug-2026 17:53:43 UTC] PHP Fatal error:  Uncaught Error: Typed property SRW\Logger\Public\Classes\SRW_CallStackFrame::$Function must not be accessed before initialization in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_CallStackFrame.php:20
+Stack trace:
+#0 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(120): SRW\Logger\Public\Classes\SRW_CallStackFrame->__construct()
+#1 [internal function]: SRW\Logger\Public\Classes\SRW_Logger::{closure:SRW\Logger\Public\Classes\SRW_Logger::GetCalls():117}()
+#2 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Arr.php(856): array_map()
+#3 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/vendor/illuminate/collections/Collection.php(827): Illuminate\Support\Arr::map()
+#4 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(116): Illuminate\Support\Collection->map()
+#5 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(133): SRW\Logger\Public\Classes\SRW_Logger::GetCalls()
+#6 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(137): SRW\Logger\Public\Classes\SRW_Logger::GetCall()
+#7 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(78): SRW\Logger\Public\Classes\SRW_Logger::GetCallName()
+#8 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_Logger.php(61): SRW\Logger\Public\Classes\SRW_Logger::Get()
+#9 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(13): SRW\Logger\Public\Classes\SRW_Logger::Information()
+#10 [internal function]: Test->{closure:Test::doit():12}()
+#11 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(11): array_map()
+#12 /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Tests/testclass.php(20): Test->doit()
+#13 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/Source/Public/Classes/SRW_CallStackFrame.php on line 20
+[04-Aug-2026 18:05:50 UTC] SRW_Logger: family log fan-out failed for "global scope": Call to undefined function SRW\Logger\Public\Classes\sanitize_file_name()

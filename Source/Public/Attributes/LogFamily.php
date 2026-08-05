@@ -18,6 +18,6 @@ class LogFamily {
     public function __construct(string $family, ?string $path = null, string $resolver = 'scalar') {
         $this->family = $family;
         $this->path = $path;
-        $this->resolver = $resolver;
+        $this->resolver = $resolver; // can be 'global', 'option', 'constant', 'callable', or 'default
     }
 }

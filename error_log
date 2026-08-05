@@ -1,0 +1,31 @@
+[30-Jul-2026 20:36:07 UTC] PHP Parse error:  syntax error, unexpected identifier "var_dump" in php shell code on line 2
+[30-Jul-2026 20:41:09 UTC] PHP Warning:  Uncaught ArgumentCountError: print_r() expects at least 1 argument, 0 given in php shell code:1
+Stack trace:
+#0 php shell code(1): print_r()
+#1 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 20:42:05 UTC] PHP Warning:  Uncaught BadMethodCallException: Method Illuminate\Support\Collection::toString does not exist. in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/vendor/illuminate/macroable/Traits/Macroable.php:117
+Stack trace:
+#0 php shell code(1): Illuminate\Support\Collection->__call()
+#1 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/vendor/illuminate/macroable/Traits/Macroable.php on line 117
+[30-Jul-2026 20:45:09 UTC] PHP Warning:  Uncaught ArgumentCountError: print_r() expects at least 1 argument, 0 given in php shell code:1
+Stack trace:
+#0 php shell code(1): print_r()
+#1 {main}
+  thrown in php shell code on line 1
+[30-Jul-2026 20:46:43 UTC] PHP Warning:  Uncaught ArgumentCountError: Too few arguments to function Illuminate\Support\Collection::whereIn(), 1 passed in php shell code on line 1 and at least 2 expected in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/vendor/illuminate/collections/Traits/EnumeratesValues.php:702
+Stack trace:
+#0 php shell code(1): Illuminate\Support\Collection->whereIn()
+#1 {main}
+  thrown in /home/sainbsbl/public_html/wp-content/mu-plugins/Logger/vendor/illuminate/collections/Traits/EnumeratesValues.php on line 702
+[31-Jul-2026 05:04:53 UTC] PHP Parse error:  syntax error, unexpected token "class" in php shell code on line 2
+[31-Jul-2026 05:05:27 UTC] PHP Warning:  Uncaught Error: Class "Test" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+[31-Jul-2026 05:09:36 UTC] PHP Parse error:  syntax error, unexpected identifier "int", expecting "function" in php shell code on line 1
+[31-Jul-2026 05:09:55 UTC] PHP Warning:  Uncaught Error: Class "Test" not found in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1

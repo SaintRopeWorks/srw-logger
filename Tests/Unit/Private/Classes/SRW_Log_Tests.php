@@ -52,6 +52,27 @@ unit_group(
                             );
                     }
                 );
+                it(
+                    'Destroys an existing log file when append mode is explicitly disabled',
+                    function () {
+                        $test_dir = srw_test_log_dir();
+                        $target_file = $test_dir . '/destructive_test.log';
+                        
+                        // Create a file ahead of time
+                        if (!is_dir($test_dir)) mkdir($test_dir, 0755, true);
+                        file_put_contents($target_file, 'Pre-existing log state.');
+                        
+                        // Instantiate with append set to false
+                        new SRW_Log(
+                            name: 'destructive_test',
+                            directory: $test_dir,
+                            is_family: false,
+                            append: false
+                        );
+                        
+                        expect($target_file)->not->toBeFile();
+                    }
+                );
             }
         );
         describe(
@@ -197,6 +218,44 @@ unit_group(
                             'verified_unit', 
                         ]
                     );
+                it(
+                    'Splits extremely long text strings into manageable padded chunks',
+                    function () {
+                        // Artificially change configurations to low message sizing steps
+                        \SRW\Logger\Public\Classes\SRW_Logger::$max_message_size = 10;
+                        
+                        $this->log_worker->write(
+                            message: '1234567890ABCDEFGHIJ',
+                            data: null,
+                            level: SRW_Log_Level::Info,
+                            component_context: 'ChunkTest'
+                        );
+                        
+                        $contents = file_get_contents($this->logFile);
+                        expect($contents)->toContain('...')->and($contents)->toContain('1234567890');
+                        
+                        // Restore sizing balance configurations
+                        \SRW\Logger\Public\Classes\SRW_Logger::$max_message_size = 5000;
+                    }
+                );
+                it(
+                    'Executes file renames and moves data during file overflow events',
+                    function () {
+                        \SRW\Logger\Public\Classes\SRW_Logger::setup(srw_test_log_dir(), true, 10, 1000); // 10-byte limit
+                        $log_worker = new SRW_Log('overflow_run', srw_test_log_dir(), false, true);
+                        
+                        // Write something to establish a physical file size baseline
+                        $log_worker->write('A', null, SRW_Log_Level::Info); 
+                        
+                        // This write triggers test_and_roll_over(), matches file_exists, hits the size check, and runs lines 193-208
+                        $log_worker->write('B', null, SRW_Log_Level::Info);
+                        
+                        $rotated_files = glob(srw_test_log_dir() . '/overflow_run-*.log');
+                        expect($rotated_files)->not->toBeEmpty();
+
+                    }
+                );
+
             }
         );
     }
